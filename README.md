@@ -5,7 +5,7 @@ Docker образ для разворачивания типового окру�
 
 1. git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
 2. useradd -u 5678 webmaster
-3. chown -R webmaster:webmaster data/
+3. chown -R webmaster:webmaster data/www/
 4. docker build -t bitrix ./
 5. docker run -t -i -d \
 -v "$(pwd)/logs:/logs" \
