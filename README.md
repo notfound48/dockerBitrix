@@ -4,11 +4,13 @@ Docker образ для разворачивания типового окру�
 # Разворачивание
 
 1. git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
-2. docker build -t bitrix ./
-3. docker run -t -i -d \
+2. useradd -u 5678 webmaster
+3. chown -R webmaster:webmaster data/
+4. docker build -t bitrix ./
+5. docker run -t -i -d \
+-v "$(pwd)/logs:/logs" \
 -v "$(pwd)/data/www:/www" \
 -v "$(pwd)/data/mysql:/var/lib/mysql" \
--v "$(pwd)/logs:/logs" \
 -v "$(pwd)/configs/nginx/:/etc/nginx" \
 -v "$(pwd)/configs/php5:/etc/php5" \
 -v "$(pwd)/configs/mysql:/etc/mysql" \
