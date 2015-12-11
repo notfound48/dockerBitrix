@@ -7,7 +7,7 @@ Docker образ для разворачивания типового окру�
 2. useradd -u 5678 webmaster
 3. chown -R webmaster:webmaster data/www/
 4. docker build -t bitrix ./
-5. < docker run -t -i -d \
+5. docker run -t -i -d \
 -v "$(pwd)/logs:/logs" \
 -v "$(pwd)/data/www:/www" \
 -v "$(pwd)/data/mysql:/var/lib/mysql" \
@@ -20,4 +20,4 @@ Docker образ для разворачивания типового окру�
 -p 80:80 \
 -p 443:443 \
 -p 4444:22 \
---name bitrix bitrix >
+--name bitrix bitrix
