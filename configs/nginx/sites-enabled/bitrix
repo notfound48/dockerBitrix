@@ -16,9 +16,6 @@ server {
 
     root /www;
 
-    error_page 404  /404.php;
-    error_page 500 502 503 504 /500.html;
-
     proxy_connect_timeout 300;
     proxy_send_timeout 300;
     proxy_read_timeout 300;
@@ -106,12 +103,6 @@ server {
 
         deny all;
 
-    }
-
-    location = /500.html {
-    
-        internal;
-    
     }
 
     location ~ /.git/ {

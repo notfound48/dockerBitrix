@@ -9,12 +9,12 @@ ENV INITRD No
 RUN locale-gen ru_RU.UTF-8 && dpkg-reconfigure locales 
 
 #Создать пользователя webmaster
-RUN useradd webmaster
+RUN useradd -u 5678 webmaster
 
 # Устанавливаем пакеты
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y nginx php5-fpm php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor mysql-server wget curl mc nano openssh-server sendmail
+RUN apt-get install -y nginx php5-fpm php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor mysql-server wget curl mc nano openssh-server htop
 
 # Настройка SSHd
 RUN mkdir /var/run/sshd
@@ -31,9 +31,6 @@ RUN /bin/sh /tmp/set-mysql-password.sh
 # Очистка пакетов
 RUN apt-get clean
 RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
-
-# Добавляем конфиг supervisor
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 
 # Запускаем supervisor
 CMD ["/usr/bin/supervisord"] 
