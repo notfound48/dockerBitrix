@@ -1,14 +1,19 @@
-# Docker image for Bitrix
+## Docker image for Bitrix
 
-Docker образ для разворачивания типового окружения для Bitrix
-# Разворачивание
+# Deployment
 
-git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
-useradd -u 5678 webmaster
-chown -R webmaster:webmaster data/www/
-docker build -t bitrix ./
+$ git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
 ```
-docker run -t -i -d \
+$ sudo useradd -u 5678 webmaster
+```
+```
+$ sudo chown -R webmaster:webmaster data/www/
+```
+```
+$ sudo docker build -t bitrix ./
+```
+```
+$ sudo docker run -t -i -d \
 -v "$(pwd)/logs:/logs" \
 -v "$(pwd)/data/www:/www" \
 -v "$(pwd)/data/mysql:/var/lib/mysql" \
