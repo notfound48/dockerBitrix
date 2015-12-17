@@ -1,8 +1,9 @@
-## Docker image for Bitrix
+# Docker image for Bitrix
 
-# Deployment
-
+## Deployment
+```
 $ git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
+```
 ```
 $ sudo useradd -u 5678 webmaster
 ```
