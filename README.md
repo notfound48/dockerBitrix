@@ -22,7 +22,10 @@ git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
 
 sudo docker build -t bitrix ./
 
-sudo cp -R /home/webmaster/dockerBitrix/data/ /home/webmaster/dockerBitrix/logs/ /home/webmaster/dockerBitrix/configs/ /home/webmaster/
+sudo cp -R /home/webmaster/dockerBitrix/data/ \
+/home/webmaster/dockerBitrix/logs/ \
+/home/webmaster/dockerBitrix/configs/ \
+/home/webmaster/
 
 cd /home/webmaster/
 
@@ -42,4 +45,9 @@ sudo docker run -t -i -d \
 -p 443:443 \
 -p 4444:22 \
 --name bitrix bitrix
+```
+## Default access
+```
+SSH access to the container: ssh -p 4444 root@server_address | root
+Root access to the mysql: mysql -u root -proot
 ```
