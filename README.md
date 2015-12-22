@@ -2,35 +2,33 @@
 
 ## Instaling Docker
 ```
-$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
   --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-$ sudo sh -c "echo deb https://get.docker.com/ubuntu docker main \
+
+sudo sh -c "echo deb https://get.docker.com/ubuntu docker main \
  > /etc/apt/sources.list.d/docker.list"
-$ sudo apt-get update
-$ sudo apt-get install lxc-docker
+
+sudo apt-get update
+
+sudo apt-get install lxc-docker
 ```
 ## Deployment
 ```
-$ sudo adduser -u 5678 webmaster
-$ cd /home/webmaster/
-```
-```
-$ git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
-```
-```
-$ sudo docker build -t bitrix ./
-```
-```
-$ sudo cp -R /home/webmaster/dockerBitrix/data/ /home/webmaster/dockerBitrix/logs/ /home/webmaster/dockerBitrix/configs/ /home/webmaster/
-```
-```
-$ cd /home/webmaster/
-```
-```
-$ sudo chown -R webmaster:webmaster data/www/
-```
-```
-$ sudo docker run -t -i -d \
+sudo adduser -u 5678 webmaster
+
+cd /home/webmaster/
+
+git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
+
+sudo docker build -t bitrix ./
+
+sudo cp -R /home/webmaster/dockerBitrix/data/ /home/webmaster/dockerBitrix/logs/ /home/webmaster/dockerBitrix/configs/ /home/webmaster/
+
+cd /home/webmaster/
+
+sudo chown -R webmaster:webmaster data/www/
+
+sudo docker run -t -i -d \
 -v "$(pwd)/logs:/logs" \
 -v "$(pwd)/data/www:/www" \
 -v "$(pwd)/data/mysql:/var/lib/mysql" \
