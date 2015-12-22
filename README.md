@@ -11,16 +11,23 @@ $ sudo apt-get install lxc-docker
 ```
 ## Deployment
 ```
+$ sudo adduser -u 5678 webmaster
+$ cd /home/webmaster/
+```
+```
 $ git clone https://github.com/notfound48/dockerBitrix.git && cd dockerBitrix
 ```
 ```
-$ sudo useradd -u 5678 webmaster
+$ sudo docker build -t bitrix ./
+```
+```
+$ sudo cp -R /home/webmaster/dockerBitrix/data/ /home/webmaster/dockerBitrix/logs/ /home/webmaster/dockerBitrix/configs/ /home/webmaster/
+```
+```
+$ cd /home/webmaster/
 ```
 ```
 $ sudo chown -R webmaster:webmaster data/www/
-```
-```
-$ sudo docker build -t bitrix ./
 ```
 ```
 $ sudo docker run -t -i -d \
