@@ -49,5 +49,5 @@ sudo docker run -t -i -d \
 ## Default access
 ```
 SSH access to the container: ssh -p 4444 root@server_address | root
-Root access to the mysql: mysql -u root -proot
+Root access to the mysql: mysql -u root 
 ```
