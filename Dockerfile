@@ -1,6 +1,8 @@
 # Используем за основу контейнера Ubuntu 14.04 LTS
 FROM ubuntu:14.04
 
+MAINTAINER Bezrukavnikov Ilya “just_bis@mail.ru”
+
 # Переключаем Ubuntu в неинтерактивный режим
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
@@ -14,7 +16,7 @@ RUN useradd -u 5678 webmaster
 # Устанавливаем пакеты
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y nginx php5-fpm php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor mysql-server wget curl mc nano openssh-server htop
+RUN apt-get install -y nginx php5-fpm php5-mysql php5-gd php5-curl php-pear php-apc php5-mcrypt php5-imagick php5-memcache supervisor mysql-server wget curl mc nano openssh-server htop sendmail
 
 # Настройка SSHd
 RUN mkdir /var/run/sshd
@@ -25,7 +27,11 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # Установка root пароля MySQL
-ADD set-mysql-password.sh /tmp/set-mysql-password.sh
+ADD /scripts/set-mysql-password.sh /tmp/set-mysql-password.sh
+
+# Скрипт правки hosts (для sendmail)
+ADD /scripts/change-hosts.sh /root/change-hosts.sh
+
 RUN /bin/sh /tmp/set-mysql-password.sh
 
 # Очистка пакетов
