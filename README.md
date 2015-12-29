@@ -38,16 +38,17 @@ sudo docker run -t -i -d \
 -v "$(pwd)/configs/nginx/:/etc/nginx" \
 -v "$(pwd)/configs/php5:/etc/php5" \
 -v "$(pwd)/configs/mysql:/etc/mysql" \
--v "$(pwd)/configs/cron:/var/spool/cron/crontabs" \
--v "$(pwd)/configs/memcached.conf:/etc/memcached.conf" \
+-v "$(pwd)/configs/zabbix:/etc/zabbix" \
+-v "$(pwd)/configs/cron:/etc/cron.d/docker" \
 -v "$(pwd)/configs/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf" \
 -p 80:80 \
 -p 443:443 \
 -p 4444:22 \
+-p 10055:10050 \
 --name bitrix bitrix
 ```
 ## Default access
 ```
-SSH access to the container: ssh -p 4444 root@server_address | root
-Root access to the mysql: mysql -u root 
+SSH access to the container: ssh -p 4444 root@server_address | QWlOZ88modPzqaKB
+Root access to the mysql: mysql -u root -psbOIp59bkFRLhswE
 ```

@@ -1,0 +1,2 @@
+#* * * * * webmaster /usr/bin/php -f /www/bitrix/php_interface/include/catalog_export/cron_frame.php 1 > /var/www/bitrix/php_interface/include/catalog_export/logs/1.txt
+#* * * * * webmaster /usr/bin/php -f /www/invoz.ru/bitrix/modules/main/tools/cron_events.php

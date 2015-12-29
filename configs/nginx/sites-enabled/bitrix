@@ -59,7 +59,7 @@ server {
 
     }
 
-    location ^~ /bitrix/admin/ {
+    location ^~ /bitrix/admin/.+.php {
 
         try_files       $uri @bitrixadm;
         fastcgi_pass    127.0.0.1:9000;
