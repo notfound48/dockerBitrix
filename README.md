@@ -1,6 +1,6 @@
-# Docker image for Bitrix
+# Docker образ Bitrix
 
-## Instaling Docker
+## Установка Docker
 ```
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
   --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -12,7 +12,7 @@ sudo apt-get update
 
 sudo apt-get install lxc-docker
 ```
-## Deployment
+## Разворачивание
 ```
 sudo adduser -u 5678 webmaster
 
@@ -47,8 +47,18 @@ sudo docker run -t -i -d \
 -p 10055:10050 \
 --name bitrix bitrix
 ```
-## Default access
+## Доступ по умолчанию
 ```
 SSH access to the container: ssh -p 4444 root@server_address | QWlOZ88modPzqaKB
 Root access to the mysql: mysql -u root -psbOIp59bkFRLhswE
+```
+## Zabbix мониторинг
+```
+Port 10055
+```
+```
+В макросы узла добавить:
+
+{$NGINX_STATS_URL} = http://127.0.0.1:8888/nginx_status
+{$PHP_FPM_STATUS_URL} = http://127.0.0.1/php-fpm_status
 ```
