@@ -29,6 +29,8 @@ sudo cp -R /home/webmaster/dockerBitrix/data/ \
 
 cd /home/webmaster/
 
+mkdir data/mysql
+
 sudo chown -R webmaster:webmaster data/www/
 
 sudo docker run -t -i -d \
@@ -50,7 +52,6 @@ sudo docker run -t -i -d \
 ## Доступ по умолчанию
 ```
 SSH access to the container: ssh -p 4444 root@server_address | QWlOZ88modPzqaKB
-Root access to the mysql: mysql -u root -psbOIp59bkFRLhswE
 ```
 ## Zabbix мониторинг
 ```
